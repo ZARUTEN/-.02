@@ -1,0 +1,24 @@
+﻿<Window x:Class="work.Window6"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:work"
+        mc:Ignorable="d"
+        Title="Window6" Height="289.916" Width="500">
+    <Grid>
+        <DataGrid Name="DataGrid" HorizontalAlignment="Left" Height="253" Margin="10,0,0,0" VerticalAlignment="Top" Width="472">
+            <DataGrid.Columns>
+
+                <DataGridTemplateColumn Header="Удаление">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Tag="{Binding Авторизация}" Content ="Удалить?"  Click ="Button_Click_1"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>

@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище ip29ModelContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="ip29Model.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Авторизация">
+      <EntityTypeMapping TypeName="ip29Model.Авторизация">
+        <MappingFragment StoreEntitySet="Авторизация">
+          <ScalarProperty Name="ID_пользователя" ColumnName="ID пользователя" />
+          <ScalarProperty Name="Логин" ColumnName="Логин" />
+          <ScalarProperty Name="Пароль" ColumnName="Пароль" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Должности">
+      <EntityTypeMapping TypeName="ip29Model.Должности">
+        <MappingFragment StoreEntitySet="Должности">
+          <ScalarProperty Name="ID_должности" ColumnName="ID должности" />
+          <ScalarProperty Name="Название" ColumnName="Название" />
+          <ScalarProperty Name="группа_услуг" ColumnName="группа услуг" />
+          <ScalarProperty Name="График_работы" ColumnName="График работы" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Клиенты">
+      <EntityTypeMapping TypeName="ip29Model.Клиенты">
+        <MappingFragment StoreEntitySet="Клиенты">
+          <ScalarProperty Name="ID_Клиента" ColumnName="ID Клиента" />
+          <ScalarProperty Name="ФИО" ColumnName="ФИО" />
+          <ScalarProperty Name="Телефон" ColumnName="Телефон" />
+          <ScalarProperty Name="Постоянство" ColumnName="Постоянство" />
+          <ScalarProperty Name="Адрес" ColumnName="Адрес" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Контакты">
+      <EntityTypeMapping TypeName="ip29Model.Контакты">
+        <MappingFragment StoreEntitySet="Контакты">
+          <ScalarProperty Name="ID_Контакта" ColumnName="ID Контакта" />
+          <ScalarProperty Name="ICQ" ColumnName="ICQ" />
+          <ScalarProperty Name="E_mail" ColumnName="E-mail" />
+          <ScalarProperty Name="Skype" ColumnName="Skype" />
+          <ScalarProperty Name="Клиент" ColumnName="Клиент" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Посещения">
+      <EntityTypeMapping TypeName="ip29Model.Посещения">
+        <MappingFragment StoreEntitySet="Посещения">
+          <ScalarProperty Name="ID_посетителя" ColumnName="ID посетителя" />
+          <ScalarProperty Name="клиент" ColumnName="клиент" />
+          <ScalarProperty Name="услуга" ColumnName="услуга" />
+          <ScalarProperty Name="сотрудник" ColumnName="сотрудник" />
+          <ScalarProperty Name="дата" ColumnName="дата" />
+          <ScalarProperty Name="время" ColumnName="время" />
+          <ScalarProperty Name="услуга_оказана" ColumnName="услуга оказана" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Регистрация">
+      <EntityTypeMapping TypeName="ip29Model.Регистрация">
+        <MappingFragment StoreEntitySet="Регистрация">
+          <ScalarProperty Name="ID_Пользователя" ColumnName="ID Пользователя" />
+          <ScalarProperty Name="Логин" ColumnName="Логин" />
+          <ScalarProperty Name="Пароль" ColumnName="Пароль" />
+          <ScalarProperty Name="E_mail" ColumnName="E-mail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Сотрудники">
+      <EntityTypeMapping TypeName="ip29Model.Сотрудники">
+        <MappingFragment StoreEntitySet="Сотрудники">
+          <ScalarProperty Name="ID_сотрудника" ColumnName="ID сотрудника" />
+          <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+          <ScalarProperty Name="Имя" ColumnName="Имя" />
+          <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+          <ScalarProperty Name="Должность" ColumnName="Должность" />
+          <ScalarProperty Name="Адрес" ColumnName="Адрес" />
+          <ScalarProperty Name="Телефон" ColumnName="Телефон" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="СЦ">
+      <EntityTypeMapping TypeName="ip29Model.СЦ">
+        <MappingFragment StoreEntitySet="СЦ">
+          <ScalarProperty Name="ID_группы" ColumnName="ID группы" />
+          <ScalarProperty Name="Название" ColumnName="Название" />
+          <ScalarProperty Name="ID_Пользователя" ColumnName="ID Пользователя" />
+          <ScalarProperty Name="C_ID_Услуги" ColumnName="[ID Услуги" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Услуги">
+      <EntityTypeMapping TypeName="ip29Model.Услуги">
+        <MappingFragment StoreEntitySet="Услуги">
+          <ScalarProperty Name="C_ID_услуги" ColumnName="[ID услуги" />
+          <ScalarProperty Name="Название" ColumnName="Название" />
+          <ScalarProperty Name="группа" ColumnName="группа" />
+          <ScalarProperty Name="себестоимоть" ColumnName="себестоимоть" />
+          <ScalarProperty Name="цена" ColumnName="цена" />
+          <ScalarProperty Name="сотруднику" ColumnName="сотруднику" />
+          <ScalarProperty Name="описание_услуги" ColumnName="описание услуги" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище ip29Model.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище ip29Model.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище ip29Model.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище ip29Model.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ip29Model.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище ip29Model.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ip29Model.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище ip29Model.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище ip29Model.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

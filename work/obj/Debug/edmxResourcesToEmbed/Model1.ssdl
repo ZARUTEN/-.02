@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище ip29Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Авторизация">
+    <Key>
+      <PropertyRef Name="ID пользователя" />
+    </Key>
+    <Property Name="ID пользователя" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Логин" Type="nchar" MaxLength="20" />
+    <Property Name="Пароль" Type="nchar" MaxLength="20" />
+    <Property Name="ФИО" Type="nchar" MaxLength="200" />
+    <Property Name="Фото" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Должности">
+    <Key>
+      <PropertyRef Name="ID должности" />
+    </Key>
+    <Property Name="ID должности" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Название" Type="nchar" MaxLength="50" />
+    <Property Name="группа услуг" Type="int" />
+    <Property Name="График работы" Type="nchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Клиенты">
+    <Key>
+      <PropertyRef Name="ID Клиента" />
+    </Key>
+    <Property Name="ID Клиента" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ФИО" Type="nchar" MaxLength="50" />
+    <Property Name="Телефон" Type="nchar" MaxLength="50" />
+    <Property Name="Постоянство" Type="nchar" MaxLength="50" />
+    <Property Name="Адрес" Type="nchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Контакты">
+    <Key>
+      <PropertyRef Name="ID Контакта" />
+    </Key>
+    <Property Name="ID Контакта" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ICQ" Type="nchar" MaxLength="50" />
+    <Property Name="E-mail" Type="nchar" MaxLength="50" />
+    <Property Name="Skype" Type="nchar" MaxLength="50" />
+    <Property Name="Клиент" Type="int" />
+  </EntityType>
+  <EntityType Name="Посещения">
+    <Key>
+      <PropertyRef Name="ID посетителя" />
+    </Key>
+    <Property Name="ID посетителя" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="клиент" Type="int" />
+    <Property Name="услуга" Type="int" Nullable="false" />
+    <Property Name="сотрудник" Type="int" />
+    <Property Name="дата" Type="nchar" MaxLength="50" />
+    <Property Name="время" Type="nchar" MaxLength="50" />
+    <Property Name="услуга оказана" Type="nchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Регистрация">
+    <Key>
+      <PropertyRef Name="ID Пользователя" />
+    </Key>
+    <Property Name="ID Пользователя" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Логин" Type="int" />
+    <Property Name="Пароль" Type="nchar" MaxLength="20" />
+    <Property Name="E-mail" Type="nchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Сотрудники">
+    <Key>
+      <PropertyRef Name="ID сотрудника" />
+    </Key>
+    <Property Name="ID сотрудника" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Фамилия" Type="nchar" MaxLength="50" />
+    <Property Name="Имя" Type="nchar" MaxLength="50" />
+    <Property Name="Отчество" Type="nchar" MaxLength="50" />
+    <Property Name="Должность" Type="int" />
+    <Property Name="Адрес" Type="nchar" MaxLength="50" />
+    <Property Name="Телефон" Type="nchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="СЦ">
+    <Key>
+      <PropertyRef Name="ID группы" />
+    </Key>
+    <Property Name="ID группы" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Название" Type="nchar" MaxLength="25" />
+    <Property Name="ID Пользователя" Type="int" />
+    <Property Name="[ID Услуги" Type="int" />
+  </EntityType>
+  <EntityType Name="Услуги">
+    <Key>
+      <PropertyRef Name="[ID услуги" />
+    </Key>
+    <Property Name="[ID услуги" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Название" Type="char" MaxLength="50" />
+    <Property Name="группа" Type="nchar" MaxLength="50" />
+    <Property Name="себестоимоть" Type="nchar" MaxLength="50" />
+    <Property Name="цена" Type="nchar" MaxLength="50" />
+    <Property Name="сотруднику" Type="nchar" MaxLength="50" />
+    <Property Name="описание услуги" Type="nchar" MaxLength="50" />
+    <Property Name="Фото услуги" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Должности_СЦ">
+    <End Role="СЦ" Type="Self.СЦ" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Должности" Type="Self.Должности" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="СЦ">
+        <PropertyRef Name="ID группы" />
+      </Principal>
+      <Dependent Role="Должности">
+        <PropertyRef Name="группа услуг" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Контакты_Клиенты">
+    <End Role="Клиенты" Type="Self.Клиенты" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Контакты" Type="Self.Контакты" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Клиенты">
+        <PropertyRef Name="ID Клиента" />
+      </Principal>
+      <Dependent Role="Контакты">
+        <PropertyRef Name="Клиент" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Посещения_Клиенты">
+    <End Role="Клиенты" Type="Self.Клиенты" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Посещения" Type="Self.Посещения" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Клиенты">
+        <PropertyRef Name="ID Клиента" />
+      </Principal>
+      <Dependent Role="Посещения">
+        <PropertyRef Name="клиент" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Посещения_Сотрудники">
+    <End Role="Сотрудники" Type="Self.Сотрудники" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Посещения" Type="Self.Посещения" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Сотрудники">
+        <PropertyRef Name="ID сотрудника" />
+      </Principal>
+      <Dependent Role="Посещения">
+        <PropertyRef Name="сотрудник" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Посещения_Услуги">
+    <End Role="Услуги" Type="Self.Услуги" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Посещения" Type="Self.Посещения" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Услуги">
+        <PropertyRef Name="[ID услуги" />
+      </Principal>
+      <Dependent Role="Посещения">
+        <PropertyRef Name="услуга" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Сотрудники_Должности">
+    <End Role="Должности" Type="Self.Должности" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Сотрудники" Type="Self.Сотрудники" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Должности">
+        <PropertyRef Name="ID должности" />
+      </Principal>
+      <Dependent Role="Сотрудники">
+        <PropertyRef Name="Должность" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_СЦ_Услуги">
+    <End Role="Услуги" Type="Self.Услуги" Multiplicity="0..1" />
+    <End Role="СЦ" Type="Self.СЦ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Услуги">
+        <PropertyRef Name="[ID услуги" />
+      </Principal>
+      <Dependent Role="СЦ">
+        <PropertyRef Name="[ID Услуги" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="Хранилище ip29ModelContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Авторизация" EntityType="Self.Авторизация" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Должности" EntityType="Self.Должности" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Клиенты" EntityType="Self.Клиенты" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Контакты" EntityType="Self.Контакты" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Посещения" EntityType="Self.Посещения" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Регистрация" EntityType="Self.Регистрация" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Сотрудники" EntityType="Self.Сотрудники" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="СЦ" EntityType="Self.СЦ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Услуги" EntityType="Self.Услуги" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Должности_СЦ" Association="Self.FK_Должности_СЦ">
+      <End Role="СЦ" EntitySet="СЦ" />
+      <End Role="Должности" EntitySet="Должности" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Контакты_Клиенты" Association="Self.FK_Контакты_Клиенты">
+      <End Role="Клиенты" EntitySet="Клиенты" />
+      <End Role="Контакты" EntitySet="Контакты" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Посещения_Клиенты" Association="Self.FK_Посещения_Клиенты">
+      <End Role="Клиенты" EntitySet="Клиенты" />
+      <End Role="Посещения" EntitySet="Посещения" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Посещения_Сотрудники" Association="Self.FK_Посещения_Сотрудники">
+      <End Role="Сотрудники" EntitySet="Сотрудники" />
+      <End Role="Посещения" EntitySet="Посещения" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Посещения_Услуги" Association="Self.FK_Посещения_Услуги">
+      <End Role="Услуги" EntitySet="Услуги" />
+      <End Role="Посещения" EntitySet="Посещения" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Сотрудники_Должности" Association="Self.FK_Сотрудники_Должности">
+      <End Role="Должности" EntitySet="Должности" />
+      <End Role="Сотрудники" EntitySet="Сотрудники" />
+    </AssociationSet>
+    <AssociationSet Name="FK_СЦ_Услуги" Association="Self.FK_СЦ_Услуги">
+      <End Role="Услуги" EntitySet="Услуги" />
+      <End Role="СЦ" EntitySet="СЦ" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

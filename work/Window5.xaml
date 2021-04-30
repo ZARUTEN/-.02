@@ -1,0 +1,26 @@
+﻿<Window x:Class="work.Window5"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:work"
+        mc:Ignorable="d"
+        Title="Window5" Height="281.092" Width="324.79">
+    <Grid Tag="{Binding Группа}">
+        <Label Content="Название" HorizontalAlignment="Left" Margin="76,60,0,0" VerticalAlignment="Top"/>
+        <Label Content="Себестоимость " HorizontalAlignment="Left" Margin="47,102,0,0" VerticalAlignment="Top"/>
+        <Label Content="Цена" HorizontalAlignment="Left" Margin="99,126,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.443,0.748"/>
+        <Label Content="Сотруднику" HorizontalAlignment="Left" Margin="65,149,0,0" VerticalAlignment="Top"/>
+        <Label Content="Описание Услуги" HorizontalAlignment="Left" Margin="35,172,0,0" VerticalAlignment="Top"/>
+        <Button Content="Редактировать" HorizontalAlignment="Left" Margin="136,200,0,0" VerticalAlignment="Top" Width="128" Height="35" FontSize="18" Click="Button_Click"/>
+        <Label Content="Редактировать услугу" HorizontalAlignment="Left" Margin="54,10,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <TextBox x:Name="Tex1" HorizontalAlignment="Left" Height="23" Margin="144,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Название}"/>
+        <TextBox x:Name="Tex3" HorizontalAlignment="Left" Height="23" Margin="144,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding себестоимоть}"/> 
+        <TextBox x:Name="Tex4" HorizontalAlignment="Left" Height="23" Margin="144,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding цена}"/>
+        <TextBox x:Name="Tex5" HorizontalAlignment="Left" Height="23" Margin="144,149,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding сотруднику}"/>
+        <TextBox x:Name="Tex6" HorizontalAlignment="Left" Height="23" Margin="144,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding описание_услуги}"/>
+        <Label Content="Группа" HorizontalAlignment="Left" Margin="89,80,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="Tex1_Copy" HorizontalAlignment="Left" Height="23" Margin="144,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding группа}"/>
+
+    </Grid>
+</Window>
